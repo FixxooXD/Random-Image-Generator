@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./output.css" />
-    <title>Random-Image-Loader</title>
-    <style>
-        span{
-            font-family: 'Nunito Sans', sans-serif;
-        }
-      body {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-image: linear-gradient(to right,#0F2027,#203A43,#2C5364);
-      }
-      #image-container {
-        text-align: center;
-      }
-      #image-container img {
-        display: flex;
-        margin: 10px;
-        border-radius: 10px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        background-color: lavenderblush;
-        width: 300px;
-        height: 300px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="border-b-2 border-orange-500 w-screen pb-1 bg-white "><span class="text-4xl px-4">Random Image Generator</span></div>
-    <div id="image-container" class="sm:grid sm:grid-cols-4 flex flex-col mt-4"></div>
-    <button id="btn" class="border-2 px-5 rounded-lg "><span class="text-2xl text-white">click</span></button>
-    <script>
-      let clickBtn = document.getElementById("btn");
-      let containerImg = document.querySelector("#image-container");
-      clickBtn.addEventListener("click", () => {
-        addImage();
-      });
-      addImage();
-      function addImage() {
-        for (var i = 0; i < 8; i++) {
-          const linkImg = document.createElement("a");
-          const link = `https://picsum.photos/seed/${Math.floor(
-            Math.random() * 2000
-          )}/800`;
-          linkImg.target = "_blank";
-          console.log(link);
-          linkImg.href = link;
-          containerImg.appendChild(linkImg);
 
-          const newImg = document.createElement("img");
-          console.log(link);
-          newImg.src = link;
-          linkImg.appendChild(newImg);
-        }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./output.css" />
+  <title>Random-Image-Loader</title>
+  <style>
+    span {
+      font-family: "Nunito Sans", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    }
+
+    #image-container {
+      text-align: center;
+    }
+
+    #image-container img {
+      display: flex;
+      margin: 10px;
+      border-radius: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: lavenderblush;
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="border-b-2 border-orange-500 w-screen pb-1 bg-white">
+    <span class="text-4xl px-4">Random Image Generator</span>
+  </div>
+  <div id="image-container" class="sm:grid sm:grid-cols-4 flex flex-col mt-4"></div>
+  <button id="btn" class="border-2 px-5 rounded-lg">
+    <span class="text-2xl text-white">click</span>
+  </button>
+  <script>
+    let clickBtn = document.getElementById("btn");
+    let containerImg = document.querySelector("#image-container");
+    clickBtn.addEventListener("click", () => {
+      addImage();
+    });
+    addImage();
+    function addImage() {
+      for (var i = 0; i < 8; i++) {
+        const linkImg = document.createElement("a");
+        const link = `https://picsum.photos/seed/${Math.floor(Math.random() * 2000)}/800`;
+        linkImg.target = "_blank";
+        // console.log(link);
+        linkImg.href = link;
+        containerImg.appendChild(linkImg);
+
+        const newImg = document.createElement("img");
+        // console.log(link);
+        newImg.src = link;
+        linkImg.appendChild(newImg);
       }
-    </script>
-    <!-- npx tailwindcss -i ./src/tailwind.css -o ./output.css --watch -->
-  </body>
+    }
+  </script>
+  <!-- npx tailwindcss -i ./src/tailwind.css -o ./output.css --watch -->
+</body>
+
 </html>
